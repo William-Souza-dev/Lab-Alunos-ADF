@@ -1,1 +1,5 @@
-void main(List<String> arguments) {}
+import 'package:args/args.dart';
+
+void main(List<String> arguments) {
+  final argParser = ArgParser();
+}
