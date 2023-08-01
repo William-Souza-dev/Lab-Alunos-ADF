@@ -4,14 +4,14 @@ import 'address_model.dart';
 import 'courses.model.dart';
 
 class StudentsModel {
-  int id;
-  String name;
-  int? age;
-  List<String> nameCourses;
-  List<CoursesModel> courses;
-  AddressModel address;
+  final int? id;
+  final String name;
+  final int? age;
+  final List<String> nameCourses;
+  final List<CoursesModel> courses;
+  final AddressModel address;
   StudentsModel({
-    required this.id,
+    this.id,
     required this.name,
     this.age,
     required this.nameCourses,
@@ -40,7 +40,7 @@ class StudentsModel {
     return StudentsModel(
       id: map['id'] ?? 0,
       name: map['name'] ?? '',
-      nameCourses: List<String>.from(map['nameCourses']),
+      nameCourses: List<String>.from((map['nameCourses'] ?? <String>[])),
       address: AddressModel.fromMap(map['address'] ?? <String, dynamic>{}),
       courses: map['courses']
               ?.map<CoursesModel>(

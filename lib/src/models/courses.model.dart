@@ -11,7 +11,11 @@ class CoursesModel {
   });
 
   Map<String, dynamic> toMap() {
-    return {'id': id, 'name': name, 'isStudent': isStudent};
+    return {
+      'id': id,
+      'name': name,
+      'isStudent': isStudent,
+    };
   }
 
   String toJson() => jsonEncode(toMap());

@@ -4,11 +4,11 @@ import 'city_model.dart';
 import 'phone_model.dart';
 
 class AddressModel {
-  String street;
-  int number;
-  String zipCode;
-  CityModel city;
-  PhoneModel phone;
+  final String street;
+  final int number;
+  final String zipCode;
+  final CityModel city;
+  final PhoneModel phone;
 
   AddressModel({
     required this.street,
