@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import '../models/students_model.dart';
 
 class StudentsRepository {
+  //Parse de Listas, precisa fazer o jsonDecode é posteriomente chamar o fromMap é tranformar no objeto que eu quero
   Future<List<StudentModel>> findAll() async {
     final studentsResult =
         await http.get(Uri.parse('http://localhost:8080/students'));
@@ -19,6 +20,7 @@ class StudentsRepository {
     }).toList();
   }
 
+// Parse de Objetos, precisa chamar somente o FromJson.
   Future<StudentModel> findById(int id) async {
     final studentResult =
         await http.get(Uri.parse('http://localhost:8080/students/$id'));
@@ -33,6 +35,7 @@ class StudentsRepository {
     return StudentModel.fromJson(studentResult.body);
   }
 
+// Parse de inserir dados, utilizar o verbo http.post
   Future<void> insert(StudentModel student) async {
     final response = await http.post(
         Uri.parse('http://localhost:8080/students'),
@@ -44,6 +47,7 @@ class StudentsRepository {
     }
   }
 
+// Parse de atualizar  dados, utilizar o verbo http.put
   Future<void> update(StudentModel student) async {
     final response = await http.put(
         Uri.parse('http://localhost:8080/students/${student.id}'),
@@ -55,6 +59,7 @@ class StudentsRepository {
     }
   }
 
+// Parse de deletar dados, utilizar o verbo http.delete
   Future<void> deleteById(int id) async {
     final response = await http.delete(
       Uri.parse('http://localhost:8080/students/$id'),
