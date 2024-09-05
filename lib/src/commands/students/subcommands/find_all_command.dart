@@ -16,7 +16,7 @@ class FindAllCommand extends Command {
 
   @override
   Future<void> run() async {
-    print('Aguarde buscando de Alunos...');
+    print('Aguarde buscando Alunos...');
     final students = await repository.findAll();
     print('Aprensentar também os cursos? (S ou N)');
     final showCourses = stdin.readLineSync();
